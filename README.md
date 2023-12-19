@@ -30,7 +30,7 @@ We run a loop of size $\log^5(n)$ and another of size $\log^2(n)$. In addition, 
 
 **polyMultiMod($p_1,p_2,n,r$)**:
 
-Looping through all combinations of $a$ and $b$ is $O(ab)$ and each iteration calls $n$ meaning the run time of this function is $O(p_1p_2\log(n))$.
+Looping through all combinations of $p_1$ and $p_2$ is $O(p_1p_2)$ and each iteration calls $n$ meaning the run time of this function is $O(p_1p_2\log(n))$.
 
 **polySolve($base,power,r$)**:
 
