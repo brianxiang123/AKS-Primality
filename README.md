@@ -9,7 +9,7 @@ This is an implementation of the AKS Primality test that serves as a companion d
 - Step 3: If $1 < gcd(a, n) < n$ for some $a \leq r$, then output composite
 - Step 4: If $n \leq r$, then output prime
 - Step 5: For $a = 1$ to $\lfloor \sqrt{\phi(r)}\log(n) \rfloor$ do
-  \begin{center}
+  <p align="center">
     If $(X + a)^n \neq X^n + a \mod{X^r - 1, n})$, then output composite
-  \end{center}
+  </p>
 - Step 6: Output prime
