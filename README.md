@@ -16,30 +16,30 @@ This is an implementation of the AKS Primality test that serves as a companion d
 
 # Runtime
 
-\textbf{perfectPower($n$)}:
+**powerCheck($n$)**:
 
-It is important to note that the purpose of AKS is to detect large primes where other forms of primality testing may be computationally infeasible. This means that the storage size of $n$ is nontrivial. Accessing a number of the size $n$ is an $O(\log(n))$ operation. For these reasons perfectPower has a run time of $O(\log^3(n))$ because we check at most $log(n)$ values and must simultaneously access two values of size $n$ ($n$ and $b$).
+It is important to note that the purpose of AKS is to detect large primes where other forms of primality testing may be computationally infeasible. This means that the storage size of $n$ is nontrivial. Accessing a number of the size $n$ is an $O(\log(n))$ operation. For these reasons **powerCheck** has a run time of $O(\log^3(n))$ because we check at most $log(n)$ values and must simultaneously access two values of size $n$ ($n$ and $b$).
 
-\textbf{fastMod($base,power,n$)}:
+**powerMod($base,power,n$)**:
 
-We loop through all powers of two up to the number and each operation using $base$ is nontrivial so the run time of fastMod is $O(\log(base)\log(power))$.
+We loop through all powers of two up to the number and each operation using $base$ is nontrivial so the run time of **powerMod** is $O(\log(base)\log(power))$.
 
-\textbf{findR($n$)}:
+**defineR($n$)**:
 
-We run a loop of size $\log^5(n)$ and another of size $\log^2(n)$. In addition, computing $n$ to a power and modding is an $\log(n)$ operation. Note that since $j$ is bounded by $\log^2(n)$, $\log(power)$ in fastMod becomes insignificant. Therefore the run time of findR is $O(\log^8(n))$.
+We run a loop of size $\log^5(n)$ and another of size $\log^2(n)$. In addition, computing $n$ to a power and modding is an $\log(n)$ operation. Note that since $j$ is bounded by $\log^2(n)$, $\log(power)$ in **powerMod** becomes insignificant. Therefore the run time of **defineR** is $O(\log^8(n))$.
 
-\textbf{multi($a,b,n,r$)}:
+**polyMultiMod($p_1,p_2,n,r$)**:
 
-Looping through all combinations of $a$ and $b$ is $O(ab)$ and each iteration calls $n$ meaning the run time of this function is $O(ab\log(n))$.
+Looping through all combinations of $a$ and $b$ is $O(ab)$ and each iteration calls $n$ meaning the run time of this function is $O(p_1p_2\log(n))$.
 
-\textbf{fastPoly($base,power,r$)}:
+**polySolve($base,power,r$)**:
 
 As seen before, looping through all powers of two requires $\log(power)$ iterations and computing the product of two polynomials is $O(\log(base)r\log(power))$. So the run time of this function is $O(\log(base)\log^2(power)r)$.
 
-\textbf{eulerPhi($r$)}:
+**eulerPhi($r$)**:
 
 We loop through all values up to $r$ and find the gcd between $r$ and an integer less than $r$. So the run time of this function is $O(r\log(r))$.
 
-\textbf{aks($n$)}:
+**aks($n$)**:
 
 Bringing everything together we can determine the run time of the aks function. Determining perfect powers is $O(\log^3(n))$. Finding $r$ is $O(\log^8(n)$. $r$ is less than $n$ for large $n$ and the maximum value of $r$ is $\log^5(n)$ so checking the primality of numbers up to $r$ is $O(\log^6(n))$. Finding the Euler's totient is $O(\log^5(n))$. Looping through all values from 1 to $\lfloor \sqrt{\phi(r)}\log{n} \rfloor$ is $O(\log^{\frac{7}{2}}(n))$ and multiplying polynomials of maximum length $r$ is $O(\log^7(n))$. So altogether step $5$ is $O(\log^{\frac{21}{2}}(n))$. Therefore the AKS Primality Test has a run time of $O(\log^{\frac{21}{2}}(n))$.
