@@ -5,7 +5,7 @@ This is an implementation of the AKS Primality test that serves as a companion d
 # Algorithm
 
 - Step 1: If $n = a^b$ for $a \in \mathbb{N}$ and $b > 1$, then output composite
-- Step 2: Find the smallest $r \in \mathbb{N}$ such that $ord_{r}(n) > \log^2(n)
+- Step 2: Find the smallest $r \in \mathbb{N}$ such that $ord_{r}(n) > \log^2(n)$
 - Step 3: If $1 < gcd(a, n) < n$ for some $a \leq r$, then output composite
 - Step 4: If $n \leq r$, then output prime
 - Step 5: For $a = 1$ to $\lfloor \sqrt{\phi(r)}\log(n) \rfloor$ do
